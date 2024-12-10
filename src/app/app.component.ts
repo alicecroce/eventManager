@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MainComponent } from "./main/main.component";
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,11 @@ import { MainComponent } from "./main/main.component";
 })
 export class AppComponent {
   title = 'test-ssfiugvuhriugvheriun';
+
+  constructor(private userService:UserService){
+
+  }
+  getMessageFromUserService(){
+    return this.userService.getMessage();
+  }
 }
