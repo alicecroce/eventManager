@@ -1,0 +1,23 @@
+@if(user) {
+    <div class="user">
+        <div class="user__header">
+            <h2 class="user__title">{{ user.name }}</h2>
+        </div>
+        <div class="user__body">
+            <p class="user__description">{{ user.email }}</p>
+            <P class="user__events">
+                <select (change)="selectEvent($event)">
+                    <option value="">Select an event</option>
+                    <option [value]="event.id" *ngFor="let event of eventList">
+                        {{event.name}}
+                    </option>
+                </select>
+            </P>
+        </div>
+        <div class="user__footer">
+            <button class="user__register" (click)="register()" [disabled]="!selectedEvent">Register</button>
+        </div>
+    </div>
+ } @else {
+    <p class="user__empty">No user!</p>
+ }

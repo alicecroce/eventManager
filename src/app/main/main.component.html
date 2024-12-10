@@ -1,0 +1,5 @@
+<app-event-list [eventList]="eventList" [userList]="userList" (registerUserToEvent)="addSubscription($event)"></app-event-list>
+<br>
+<br>
+<br>
+<app-user-list [userList]="userList" [eventList]="eventList" (registerEventToUser)="addSubscription($event)"></app-user-list>

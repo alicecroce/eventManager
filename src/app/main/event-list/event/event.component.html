@@ -1,0 +1,25 @@
+ @if(event) {
+    <div class="event">
+        <div class="event__header">
+            <h2 class="event__title">{{ event.name }}</h2>
+            <p class="event__date">{{ event.date | date }}</p>
+        </div>
+        <div class="event__body">
+            <p class="event__description">{{ event.location }}</p>
+            <p class="event__location">{{ event.maxCapacity }}</p>
+            <P class="event__users">
+                <select (change)="selectUser($event)">
+                    <option value="">Select an user</option>
+                    <option [value]="user.id" *ngFor="let user of userList">
+                        {{user.name}}
+                    </option>
+                </select>
+            </P>
+        </div>
+        <div class="event__footer">
+            <button class="event__register" (click)="register()" [disabled]="!selectedUser">Register</button>
+        </div>
+    </div>
+ } @else {
+    <p class="event__empty">No event!</p>
+ }

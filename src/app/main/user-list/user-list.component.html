@@ -1,0 +1,14 @@
+<div class="user-container">
+    @for(user of userList; track user.id) {
+        <div class="user">
+            <app-user 
+                [user]="user" 
+                [userList]="userList" 
+                [eventList]="eventList"
+                (registerEventToUser)="register($event)">
+            </app-user>
+        </div>
+    } @empty {
+        <p>No user!</p>
+    }
+</div>
